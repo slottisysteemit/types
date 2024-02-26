@@ -24,12 +24,7 @@ export type NewHunt = {
   name: string;
 };
 
-export type UpdateHunt = {
-  huntId: string;
-
-  name?: string;
-  start?: number;
-};
+export type UpdateHunt = Partial<NewHunt>;
 
 export type Bonus = {
   bonusId: string;
@@ -38,6 +33,13 @@ export type Bonus = {
   bet: number;
   payout?: number;
 };
+
+export type NewBonus = {
+  game: string;
+  bet: number;
+};
+
+export type UpdateBonus = Partial<NewBonus & { payout: number }>;
 
 export type Subscription = {
   id: string;
@@ -75,13 +77,6 @@ export type Settings = {
   secondaryColor: string;
 };
 
-export type UpdateSettings = {
-  layout?: string;
-  boxColor?: string;
-  currency?: string;
-  textColor?: string;
-  primaryColor?: string;
-  secondaryColor?: string;
-};
+export type UpdateSettings = Partial<Settings>;
 
 export type BillingInterval = "yearly" | "monthly" | "triennially";
