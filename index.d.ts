@@ -5,9 +5,23 @@ export type Hunt = {
   name: string;
 
   bonuses?: Bonus[];
+};
 
-  reqavg?: string;
-  winnings?: string;
+export type ProcessedHunt = Hunt & {
+  reqavg: string;
+  winnings: string;
+};
+
+export type NewHunt = {
+  start: number;
+  name: string;
+};
+
+export type UpdateHunt = {
+  huntId: string;
+
+  name?: string;
+  start?: string;
 };
 
 export type Bonus = {
@@ -17,3 +31,50 @@ export type Bonus = {
   bet: number;
   payout?: number;
 };
+
+export type Subscription = {
+  id: string;
+  current_period_end: number;
+  cancel_at_period_end: boolean;
+};
+
+export type TwitchUser = {
+  email: string;
+  twitchId: string;
+  display_name: string;
+  profilePictureUrl: string;
+};
+
+export type TwitchToken = {
+  expires_in: number;
+  access_token: string;
+  refresh_token: string;
+};
+
+export type User = {
+  twitchId: string;
+  userId: string;
+
+  displayName: string;
+  profilePictureUrl: string;
+};
+
+export type Settings = {
+  layout: string;
+  boxColor: string;
+  currency: string;
+  textColor: string;
+  primaryColor: string;
+  secondaryColor: string;
+};
+
+export type UpdateSettings = {
+  layout?: string;
+  boxColor?: string;
+  currency?: string;
+  textColor?: string;
+  primaryColor?: string;
+  secondaryColor?: string;
+};
+
+export type BillingInterval = "yearly" | "monthly" | "triennially";
