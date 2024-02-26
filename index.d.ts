@@ -8,6 +8,7 @@ export type Hunt = {
 };
 
 export type ProcessedHunt = Hunt & {
+  start: string;
   reqavg: string;
   winnings: string;
 };
@@ -21,7 +22,7 @@ export type UpdateHunt = {
   huntId: string;
 
   name?: string;
-  start?: string;
+  start?: number;
 };
 
 export type Bonus = {
