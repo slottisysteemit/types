@@ -7,8 +7,14 @@ export type Hunt = {
   bonuses?: Bonus[];
 };
 
-export type ProcessedHunt = Hunt & {
+export type ProcessedHunt = {
+  huntId: string;
+
   start: string;
+  name: string;
+
+  bonuses?: Bonus[];
+
   reqavg: string;
   winnings: string;
 };
