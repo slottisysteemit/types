@@ -63,7 +63,9 @@ export type TwitchToken = {
 export type User = TwitchUser & {
   userId: string;
   customerId: string;
+  settings: Settings;
   customLayout?: string;
+  subscription: Subscription;
 };
 
 export type Settings = {
