@@ -60,13 +60,9 @@ export type TwitchToken = {
   refresh_token: string;
 };
 
-export type User = {
-  twitchId: string;
+export type User = TwitchUser & {
   userId: string;
-
-  displayName: string;
-  profilePictureUrl: string;
-
+  customerId: string;
   customLayout?: string;
 };
 
