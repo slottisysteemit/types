@@ -66,6 +66,8 @@ export type User = {
 
   displayName: string;
   profilePictureUrl: string;
+
+  customLayout?: string;
 };
 
 export type Settings = {
