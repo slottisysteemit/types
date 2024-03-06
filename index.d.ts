@@ -1,22 +1,12 @@
 export type Hunt = {
   huntId: string;
-
-  start: number;
-  name: string;
-
-  bonuses?: Bonus[];
-};
-
-export type ProcessedHunt = {
-  huntId: string;
-
-  start: string;
-  name: string;
-
-  bonuses?: Bonus[];
-
   reqavg: string;
   winnings: string;
+
+  name: string;
+  start: string;
+
+  bonuses: Bonus[];
 };
 
 export type NewHunt = {
