@@ -1,12 +1,8 @@
 {
   "name": "@slottisysteemit/types",
-  "version": "1.0.8",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "version": "1.0.9",
+  "description": "slottisysteemit.com types",
   "keywords": [],
-  "author": "",
+  "author": "peeveez",
   "license": "ISC"
 }

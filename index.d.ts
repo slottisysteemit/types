@@ -63,6 +63,7 @@ export type Settings = {
   boxColor: string;
   currency: string;
   textColor: string;
+  marqueeSpeed: number;
   primaryColor: string;
   secondaryColor: string;
 };
