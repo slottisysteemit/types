@@ -20,8 +20,10 @@ export type Bonus = {
   bonusId: string;
 
   game: string;
-  bet: number;
-  payout?: number;
+  bet: string;
+  payout?: string;
+
+  x?: string;
 };
 
 export type NewBonus = {
