@@ -22,7 +22,6 @@ export type Bonus = {
   game: string;
   bet: string;
   payout?: string;
-
   x?: string;
 };
 
