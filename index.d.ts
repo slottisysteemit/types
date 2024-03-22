@@ -3,6 +3,8 @@ export type Hunt = {
   reqavg: string;
   winnings: string;
 
+  bestX: string;
+
   name: string;
   start: string;
 
