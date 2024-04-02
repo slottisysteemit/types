@@ -61,6 +61,8 @@ export type User = {
   username: string;
   twitchId?: string;
   customerId: string;
+
+  customLayout?: string;
 };
 
 export type UserWithPassword = User & {
