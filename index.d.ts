@@ -11,12 +11,11 @@ export type Hunt = {
   bonuses: Bonus[];
 };
 
+export type UpdateHunt = Partial<NewHunt>;
 export type NewHunt = {
   start: number;
   name: string;
 };
-
-export type UpdateHunt = Partial<NewHunt>;
 
 export type Bonus = {
   bonusId: string;
@@ -27,12 +26,11 @@ export type Bonus = {
   x?: string;
 };
 
+export type UpdateBonus = Partial<NewBonus & { payout: number }>;
 export type NewBonus = {
   game: string;
   bet: number;
 };
-
-export type UpdateBonus = Partial<NewBonus & { payout: number }>;
 
 export type Subscription = {
   id: string;
@@ -40,6 +38,7 @@ export type Subscription = {
   cancel_at_period_end: boolean;
 };
 
+// Twitch
 export type TwitchUser = {
   email: string;
   twitchId: string;
@@ -53,14 +52,22 @@ export type TwitchToken = {
   refresh_token: string;
 };
 
-export type User = TwitchUser & {
-  userId: string;
-  customerId: string;
+export type User = {
   settings: Settings;
-  customLayout?: string;
   subscription: Subscription;
+
+  email: string;
+  userId: string;
+  username: string;
+  twitchId?: string;
+  customerId: string;
 };
 
+export type UserWithPassword = User & {
+  password: string;
+};
+
+export type UpdateSettings = Partial<Settings>;
 export type Settings = {
   layout: string;
   boxColor: string;
@@ -70,7 +77,5 @@ export type Settings = {
   primaryColor: string;
   secondaryColor: string;
 };
-
-export type UpdateSettings = Partial<Settings>;
 
 export type BillingInterval = "yearly" | "monthly" | "triennially";
