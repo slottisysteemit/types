@@ -16,7 +16,7 @@ export type Settings = {
 
 export type Session = {
   sessionId: string;
-  user: User & { settings?: Settings };
+  user: User & { settings: Settings };
 };
 
 export type RegisterUser =
