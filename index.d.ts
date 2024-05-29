@@ -1,83 +1,87 @@
-export type Hunt = {
-  huntId: string;
-  reqavg: string;
-  winnings: string;
-
-  bestX: string;
-
-  name: string;
-  start: string;
-
-  bonuses: Bonus[];
-};
-
-export type UpdateHunt = Partial<NewHunt>;
-export type NewHunt = {
-  start: number;
-  name: string;
-};
-
-export type Bonus = {
-  bonusId: string;
-
-  game: string;
-  bet: string;
-  payout?: string;
-  x?: string;
-};
-
-export type UpdateBonus = Partial<NewBonus & { payout: number }>;
-export type NewBonus = {
-  game: string;
-  bet: number;
-};
-
-export type Subscription = {
-  id: string;
-  current_period_end: number;
-  cancel_at_period_end: boolean;
-};
-
-// Twitch
-export type TwitchUser = {
-  email: string;
-  twitchId: string;
-  display_name: string;
-  profilePictureUrl: string;
-};
-
-export type TwitchToken = {
-  expires_in: number;
-  access_token: string;
-  refresh_token: string;
-};
-
 export type User = {
-  settings: Settings;
-  subscription: Subscription;
-
   email: string;
   userId: string;
   username: string;
+  password?: string;
   twitchId?: string;
-  customerId: string;
 
-  customLayout?: string;
+  customerId: string; // stripe customerId
 };
 
-export type UserWithPassword = User & {
-  password: string;
-};
-
-export type UpdateSettings = Partial<Settings>;
 export type Settings = {
-  layout: string;
-  boxColor: string;
+  fontFamily: string;
   currency: string;
-  textColor: string;
-  marqueeSpeed: number;
-  primaryColor: string;
-  secondaryColor: string;
+  public: boolean;
 };
 
-export type BillingInterval = "yearly" | "monthly" | "triennially";
+export type Session = {
+  sessionId: string;
+  twitchTokenData?: TwitchToken;
+  user: User & { settings?: Settings };
+};
+
+export type RegisterUser =
+  | {
+      email: string;
+      twitchId: string;
+      username: string;
+    }
+  | {
+      email: string;
+      username: string;
+      password: string;
+    };
+
+export type TwitchToken = {
+  expiresIn: Date;
+  accessToken: string;
+  refreshToken: string;
+};
+
+export type Bonus = {
+  x?: string;
+  bet: string;
+  game: string;
+  bonusId: string;
+  payout: string | null;
+};
+
+export type NewBonus = {
+  bet: string;
+  game: string;
+};
+
+export type UpdateBonus = Partial<NewBonus & { payout: string }>;
+
+export type Hunt = {
+  name: string;
+  start: string;
+  bestX: string;
+  huntId: string;
+  reqavg: string;
+  bonuses: Bonus[];
+  winnings: string;
+  isActive: boolean;
+  openedBonusCount: number;
+};
+
+export type CreateHunt = {
+  name: string;
+  start: string;
+  userId: string;
+};
+
+export type UpdateHunt = {
+  name: string;
+  start: string;
+};
+
+export type Subscription = {
+  status: string;
+  subscriptionId: string;
+  currentPeriodEnd: Date;
+  cancelAtPeriodEnd: boolean;
+};
+
+export type SocketRoom = "hunt" | "viewer-battle";
+export type BillingInterval = "yearly" | "monthly";
