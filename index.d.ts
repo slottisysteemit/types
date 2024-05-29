@@ -3,7 +3,7 @@ export type User = {
   userId: string;
   username: string;
   password: string | null;
-  twitchId?: string;
+  twitchId: string | null;
 
   customerId: string; // stripe customerId
 };
