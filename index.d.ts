@@ -16,7 +16,6 @@ export type Settings = {
 
 export type Session = {
   sessionId: string;
-  twitchTokenData?: TwitchToken;
   user: User & { settings?: Settings };
 };
 
@@ -31,12 +30,6 @@ export type RegisterUser =
       username: string;
       password: string;
     };
-
-export type TwitchToken = {
-  expiresIn: Date;
-  accessToken: string;
-  refreshToken: string;
-};
 
 export type Bonus = {
   x?: string;
