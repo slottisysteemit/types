@@ -2,6 +2,7 @@ export type User = {
   email: string;
   userId: string;
   username: string;
+  profilePicture: string;
   password: string | null;
   twitchId: string | null;
 
@@ -24,6 +25,7 @@ export type RegisterUser =
       email: string;
       twitchId: string;
       username: string;
+      profilePicture: string;
     }
   | {
       email: string;
