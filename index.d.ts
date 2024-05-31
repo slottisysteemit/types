@@ -20,18 +20,20 @@ export type Session = {
   user: User & { settings: Settings };
 };
 
-export type RegisterUser =
-  | {
-      email: string;
-      twitchId: string;
-      username: string;
-      profilePicture: string;
-    }
-  | {
-      email: string;
-      username: string;
-      password: string;
-    };
+export type TwitchRegister = {
+  email: string;
+  twitchId: string;
+  username: string;
+  profilePicture: string;
+};
+
+export type PasswordRegister = {
+  email: string;
+  username: string;
+  password: string;
+};
+
+export type RegisterUser = PasswordRegister | TwitchRegister;
 
 export type Bonus = {
   x?: string;
