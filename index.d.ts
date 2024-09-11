@@ -1,84 +1,78 @@
-export type User = {
-  email: string;
-  userId: string;
-  username: string;
-  profilePicture: string;
-  password: string | null;
-  twitchId: string | null;
+export type Hunt = {
+  huntId: string;
+  reqavg: string;
+  winnings: string;
 
-  customerId: string; // stripe customerId
+  bestX: string;
+
+  name: string;
+  start: string;
+
+  bonuses: Bonus[];
 };
 
-export type Settings = {
-  fontFamily: string;
-  currency: string;
-  public: boolean;
+export type NewHunt = {
+  start: number;
+  name: string;
 };
 
-export type Session = {
-  sessionId: string;
-  user: User & { settings: Settings };
-};
-
-export type TwitchRegister = {
-  email: string;
-  twitchId: string;
-  username: string;
-  profilePicture: string;
-};
-
-export type PasswordRegister = {
-  email: string;
-  username: string;
-  password: string;
-};
-
-export type RegisterUser = PasswordRegister | TwitchRegister;
+export type UpdateHunt = Partial<NewHunt>;
 
 export type Bonus = {
-  x?: string;
-  bet: string;
-  game: string;
   bonusId: string;
-  payout: string | null;
+
+  game: string;
+  bet: string;
+  payout?: string;
+  x?: string;
 };
 
 export type NewBonus = {
-  bet: string;
   game: string;
+  bet: number;
 };
 
-export type UpdateBonus = Partial<NewBonus & { payout: string }>;
-
-export type Hunt = {
-  name: string;
-  start: string;
-  bestX: string;
-  huntId: string;
-  reqavg: string;
-  bonuses: Bonus[];
-  winnings: string;
-  isActive: boolean;
-  openedBonusCount: number;
-};
-
-export type CreateHunt = {
-  name: string;
-  start: string;
-  userId: string;
-};
-
-export type UpdateHunt = {
-  name: string;
-  start: string;
-};
+export type UpdateBonus = Partial<NewBonus & { payout: number }>;
 
 export type Subscription = {
-  status: string;
-  subscriptionId: string;
-  currentPeriodEnd: Date;
-  cancelAtPeriodEnd: boolean;
+  id: string;
+  current_period_end: number;
+  cancel_at_period_end: boolean;
 };
 
-export type SocketRoom = "hunt" | "viewer-battle";
+export type TwitchUser = {
+  name: string;
+  email: string;
+  twitchId: string;
+  profilePictureUrl: string;
+};
+
+export type TwitchToken = {
+  expires_in: number;
+  access_token: string;
+  refresh_token: string;
+};
+
+export type User = TwitchUser & {
+  userId: string;
+  customerId: string;
+  settings: Settings;
+  customLayout?: string;
+  subscription: Subscription;
+
+  bonushunts: number;
+};
+
+export type Settings = {
+  layout: string;
+  boxColor: string;
+  currency: string;
+  textColor: string;
+  marqueeSpeed: number;
+  primaryColor: string;
+  secondaryColor: string;
+};
+
+export type UpdateSettings = Partial<Settings>;
+
 export type BillingInterval = "yearly" | "monthly";
