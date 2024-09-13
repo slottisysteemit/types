@@ -32,6 +32,7 @@ export type Bonus = {
 export type NewBonus = {
   game: string;
   bet: number;
+  order: number;
 };
 
 export type UpdateBonus = Partial<NewBonus & { payout: number }>;
