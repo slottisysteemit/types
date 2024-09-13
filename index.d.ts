@@ -25,6 +25,8 @@ export type Bonus = {
   bet: string;
   payout?: string;
   x?: string;
+
+  order: number;
 };
 
 export type NewBonus = {
