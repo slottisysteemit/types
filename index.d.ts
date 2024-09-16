@@ -45,7 +45,7 @@ export type Subscription = {
 
   status: string;
   startDate: Date;
-  endDate: Date;
+  endDate?: Date;
   plan: string;
   amount: number;
   currency: string;
