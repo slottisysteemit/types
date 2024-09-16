@@ -39,41 +39,15 @@ export type UpdateBonus = Partial<NewBonus & { payout: number }>;
 
 export type Subscription = {
   id: number;
-  subscriptionId: string;
-
   customerId: string;
-
-  status: string;
-  startDate: Date;
-  endDate?: Date;
-  plan: string;
-  amount: number;
-  currency: string;
-
-  createdAt: Date;
-  updatedAt: Date;
+  subscriptionId: string;
 };
 
-export type TwitchUser = {
+export type User = {
   name: string;
-  email: string;
-  twitchId: string;
-  profilePictureUrl: string;
-};
-
-export type TwitchToken = {
-  expires_in: number;
-  access_token: string;
-  refresh_token: string;
-};
-
-export type User = TwitchUser & {
+  avatar: string;
   userId: string;
   customerId: string;
-  settings: Settings;
-  customLayout?: string;
-  subscription?: Subscription;
-
   bonushunts: number;
 };
 
