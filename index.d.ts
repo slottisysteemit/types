@@ -72,7 +72,7 @@ export type User = TwitchUser & {
   customerId: string;
   settings: Settings;
   customLayout?: string;
-  subscription: Subscription;
+  subscription?: Subscription;
 
   bonushunts: number;
 };
