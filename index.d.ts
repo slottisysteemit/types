@@ -38,7 +38,6 @@ export type NewBonus = {
 export type UpdateBonus = Partial<NewBonus & { payout: number }>;
 
 export type Subscription = {
-  id: number;
   customerId: string;
   subscriptionId: string;
 };
