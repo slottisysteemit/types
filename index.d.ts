@@ -38,9 +38,20 @@ export type NewBonus = {
 export type UpdateBonus = Partial<NewBonus & { payout: number }>;
 
 export type Subscription = {
-  id: string;
-  current_period_end: number;
-  cancel_at_period_end: boolean;
+  id: number;
+  subscriptionId: string;
+
+  customerId: string;
+
+  status: string;
+  startDate: Date;
+  endDate: Date;
+  plan: string;
+  amount: number;
+  currency: string;
+
+  createdAt: Date;
+  updatedAt: Date;
 };
 
 export type TwitchUser = {
